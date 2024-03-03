@@ -26,12 +26,17 @@ CSS Hierarchy - Was lost with how elements and their children interacted with ea
 Interactive Map - Map that live updates with the cursor, it also contains all countries.
 Parallax Scrolling - Parallax scrolling looks very aesthetically pleasing, and improves user experience.
 
-
 ## What we learned
 Parallax Scrolling - How to make a parallax scrolling website
 GitHub - How to use GitHub more effectively
 Bootstrap - How to use bootstrap to help run a server
 
+## How to run app
+1. First clone the repository and install all dependencies and requirements from the requirements.txt.
+2. Create a virtual environment and start it.
+3. Run the server by doing "python main.py" (might be different based on installation, e.g. python3 or py)
+4. Click on the link, 127.0.0.1:5000 by default.
+5. Explore website.
 
 ## What's next for SmathHacks 2024 
-Keep working so we can iron out all the bugs, and improve UI for all aspects of the site.
+Keep working so we can iron out all the bugs, and improve UI for all aspects of the site. Also potentially find some place to host the site.
