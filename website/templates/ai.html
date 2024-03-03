@@ -1,13 +1,28 @@
 {% extends "layout.html" %}
 {% block title %}AI{% endblock %}
 {% block main %}
-    <div class="mainbody">
-        <!-- Displaying the training image -->
-        <img src="data:image/png;base64, {{ img1 }}" alt="Training Image">
-    </div>
-    <div class="mainbody">
-        <!-- Displaying the prediction image -->
-        <img src="data:image/png;base64, {{ img2 }}" alt="Prediction Image">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Displaying the training image -->
+            <div class="card mb-4">
+                <img class="card-img-top" src="data:image/png;base64, {{ img1 }}" alt="Training Image">
+                <div class="card-body">
+                    <h5 class="card-title">Training Graph</h5>
+                    <p class="card-text">This graph represents the training data used to train the model, and the performance of the model in predicting historic CO2 Emissions.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <!-- Displaying the prediction image -->
+            <div class="card mb-4">
+                <img class="card-img-top" src="data:image/png;base64, {{ img2 }}" alt="Prediction Image">
+                <div class="card-body">
+                    <h5 class="card-title">Prediction Graph</h5>
+                    <p class="card-text">This Graph represents the predicted CO2 emissions trend for future years.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container mt-4">
         <form action="/ai" method="post" id="aiForm">
@@ -18,7 +33,12 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <div class="result" id="result" style="display: none;">
-            <!-- Result will be displayed here -->
+            <!-- Result displayed here -->
         </div>
     </div>
+<<<<<<< HEAD
 {% endblock %}
+=======
+</div>
+{% endblock %}
+>>>>>>> 28eb52037ea7654277681be6726dc21d21e3dbe8

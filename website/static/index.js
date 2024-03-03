@@ -70,6 +70,7 @@ function change_hover(data, countryname){
 function unhover(event){
     let info = document.getElementById('hoverbar')
     info.style.visibility = 'hidden'
+    info.textContent = ''
     once = true
     single = true
 }
@@ -79,7 +80,8 @@ function redirect(data){
     for (let key in data){
         redirecturl += key + '=' + data[key] + '&'
     }
-    window.location.href = "http://127.0.0.1:5000/detailed_information?" + redirecturl;
+    redirecturl = "http://127.0.0.1:5000/detailed_information?" + redirecturl;
+    window.open(redirecturl, '_blank').focus();
 }
 
 function init(){
