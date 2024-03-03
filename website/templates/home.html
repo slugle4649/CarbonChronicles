@@ -1,5 +1,6 @@
-{% extends "layout.html" %} {% block title %}Home{% endblock %} 
+<!-- {% extends "layout.html" %} {% block title %}Home{% endblock %} -->
 {% block main %}
+
 <style>
 /*
 * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -10,7 +11,7 @@
 
 @font-face{
     font-family: Raleway;
-    src: url(raleway.otf)
+    src: url(../static/raleway.ttf)
 }
 
 *{
@@ -131,8 +132,6 @@ main {
 }
 </style>
 
-</head>
-
 
 <body>
 <!-- Move images locally into templates or whatever and edit them accordingly. -->
@@ -202,16 +201,24 @@ const imageTexts = [
 
 images.forEach((image, index) => {
     image.addEventListener("click", () => {
+        // Reset modal content
+        infoContent.textContent = "";
+
+        // Display modal with appropriate text
         infoContent.textContent = imageTexts[index];
         info.style.display = "block";
+
+        // Recalculate modal position
+        setModalPosition();
     });
 });
 
 info.addEventListener("click", (event) => {
-      if (event.target.classList.contains("info") || event.target.classList.contains("close")) {
-          info.style.display = "none";
-          infoContent.textContent = "";
-      }
+    if (event.target.classList.contains("info") || event.target.classList.contains("close")) {
+        info.style.display = "none";
+        // Reset modal content
+        infoContent.textContent = "";
+    }
 });
 
 function init(){
@@ -250,31 +257,20 @@ function init(){
             info.style.display = "none";
         }
     });
+// Calculate the maximum allowable left and top positions for the modal
+  const maxLeft = screenWidth - modalWidth;
+    const maxTop = screenHeight - modalHeight;
 
-    // Function to calculate and set modal position
-    function setModalPosition() {
-        const modalWidth = infoContent.offsetWidth;
-        const modalHeight = infoContent.offsetHeight;
-        
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
+    // Calculate the left and top positions for the modal
+    let modalLeft = (screenWidth - modalWidth) / 2 + window.scrollX;
+    let modalTop = (screenHeight - modalHeight) / 2 + window.scrollY;
 
-        // Calculate the maximum allowable left and top positions for the modal
-        const maxLeft = screenWidth - modalWidth;
-        const maxTop = screenHeight - modalHeight;
-
-        // Calculate the left and top positions for the modal
-        let modalLeft = (screenWidth - modalWidth) / 2 + window.scrollX;
-        let modalTop = (screenHeight - modalHeight) / 2 + window.scrollY;
-
-        // Ensure modal stays within the bounds of the screen
-        modalLeft = Math.max(0, Math.min(modalLeft, maxLeft));
-        modalTop = Math.max(0, Math.min(modalTop, maxTop));
-        
-        infoContent.style.left = `${modalLeft}px`;
-        infoContent.style.top = `${modalTop}px`;
-    }
-
+    // Ensure modal stays within the bounds of the screen
+    modalLeft = Math.max(0, Math.min(modalLeft, maxLeft));
+    modalTop = Math.max(0, Math.min(modalTop, maxTop));
+    
+    infoContent.style.left = `${modalLeft}px`;
+    infoContent.style.top = `${modalTop}px`;
 
     // Call setModalPosition when the window is resized or scrolled
     window.addEventListener('resize', setModalPosition);
@@ -283,4 +279,4 @@ function init(){
 window.onload = init();
 
 </script>
-{% endblock %}
+<!-- {% endblock %} -->
