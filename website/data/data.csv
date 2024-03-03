@@ -1,6 +1,6 @@
 ﻿name,slug, metric tonnes of CO2,date_of_information,ranking,region
 "China","china","10,773,248,000","2019",1,"East and Southeast Asia"
-"United States","united-states","5,144,361,000","2019",2,"North America"
+"United States of America","united-states","5,144,361,000","2019",2,"North America"
 "India","india","2,314,738,000","2019",3,"South Asia"
 "Russia","russia","1,848,070,000","2019",4,"Central Asia"
 "Japan","japan","1,103,234,000","2019",5,"East and Southeast Asia"
@@ -155,7 +155,7 @@
 "Virgin Islands","virgin-islands","2,438,000","2019",154,"Central America and the Caribbean"
 "Niger","niger","2,374,000","2019",155,"Africa"
 "Suriname","suriname","2,372,000","2019",156,"South America"
-"Maldives","maldives","2,286,000","2019",157,"South Asia"
+"Maldives, Republic of","maldives","2,286,000","2019",157,"South Asia"
 "Togo","togo","2,244,000","2019",158,"Africa"
 "Macau","macau","2,012,000","2019",159,"East and Southeast Asia"
 "Guam","guam","1,828,000","2019",160,"Australia and Oceania"

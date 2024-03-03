@@ -2,10 +2,8 @@ import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.backends.backend_agg import FigureCanvasAgg
 import io
 import base64
 
@@ -65,7 +63,7 @@ class ai():
         y_pred_test = self.model.predict(X_test)
 
         # Visualizes the results
-        fig, ax = plt.subplots(figsize=(10, 6), dpi=200)  # Adjust the figure size as needed
+        fig, ax = plt.subplots(figsize=(5, 4), dpi=200)  # Adjust the figure size as needed
         ax.scatter(X_test, y_test, color='blue', label='Actual CO2 Emissions Per Year')  # Label for actual data points
         ax.plot(X_test, y_pred_test, color='red', label='Predicted CO2 Emissions Over Time')  # Label for predicted trend line
         ax.set_title('CO2 Trends Prediction')
@@ -99,7 +97,7 @@ class ai():
         future_predictions = model.predict(future_years)
 
         # Plots the future predictions
-        fig, ax = plt.subplots(figsize=(10, 6), dpi=200)
+        fig, ax = plt.subplots(figsize=(5, 4), dpi=200)
         ax.plot(self.X, self.y, color='blue', label='Historical CO2 Emissions')
         ax.scatter(future_years, future_predictions, color='red', label='Predicted CO2 Emissions Per Year')
         ax.set_title('Future CO2 Emissions Predictions')
@@ -112,4 +110,4 @@ class ai():
         plt.close(fig)
 
         # Returns image as png represented by base64 value
-        return 
+        return img_data
