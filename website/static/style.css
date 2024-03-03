@@ -15,7 +15,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Anona;
-
 }
 
 body {
@@ -206,4 +205,11 @@ main {
     color: #0a9548;
     background-color: black;
     object-position: 100% center;
+}
+
+#checkBox{
+    display: flex;
+    position: relative;
+    bottom: 0;
+    right: 0;
 }
