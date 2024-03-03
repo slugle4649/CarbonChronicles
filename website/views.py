@@ -1,5 +1,5 @@
 # Used to render front-end or the html templates for the website
-from flask import Blueprint, render_template, request, json, redirect, url_for
+from flask import Blueprint, render_template, request, json, redirect, url_for, flash
 from .calculations import stats
 from .calculations import ai
 import os
@@ -50,7 +50,7 @@ def detailed_information():
 
 # Rendering AI html page
 # Rendering AI html page
-@views.route('/ai')
+@views.route('/ai', methods=['GET', 'POST'])
 def ai_render():
     if request.method == 'POST':
         years_to_predict = int(request.form.get('numericValue', 0))
@@ -61,10 +61,10 @@ def ai_render():
         ml = ai('co2_trend.csv')
         img1 = ml.train()
         img2 = ml.predict(years_to_predict)
-        return render_template('ai_result.html', img1=img1, img2=img2)
+        return render_template('ai.html', img1=img1, img2=img2)
 
     elif request.method == 'GET':
         ml = ai('co2_trend.csv')
         img1 = ml.train()
-        img2 = ml.predict()
+        img2 = ml.predict(2050)
         return render_template('ai.html', img1=img1, img2=img2)

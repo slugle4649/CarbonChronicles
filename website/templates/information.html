@@ -2,33 +2,54 @@
     <head>
         <title>Carbon Emission Calculations</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='information.css') }}">
+        <style type="text/css">
+            body{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                height: 90%;
+                overflow: hidden;
+                background-color: #111D13;
+                color: white;
+            }
+
+            *{
+                font-size: x-large;
+            }
+
+            h2{
+                font-size: xx-large;
+            }
+        </style>
     </head>
     <body>
         <h2>Carbon Emission Calculations</h2>
         
         <div class="calc-item">
-            <span class="calc-label" id="gasoline">Equivalent Gallons of Gasoline</span>
+            <span class="calc-label" id="gasoline">Equivalent Gallons of Gasoline: </span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label" id="passenger">Passenger Miles</span>
+            <span class="calc-label" id="passenger">Passenger Miles in a car: </span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label" id="smartphones">Smartphones Charged</span>
+            <span class="calc-label" id="smartphones">Smartphones Charged: </span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label" id="acres">Acres of US Forest Needed to Sequester is </span>
+            <span class="calc-label" id="acres">Acres of US Forest Needed to Sequester: </span>
 
         </div>
         
         <div class="calc-item">
-            <span class="calc-label" id="trash_bags">Trash Bags Recycled</span>
+            <span class="calc-label" id="trash_bags">Trash Bags Recycled: </span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label" id="wind">Wind Turbines Running</span>
+            <span class="calc-label" id="wind">Wind Turbines Running: </span>
         </div>
 
         <script type="text/javascript">
