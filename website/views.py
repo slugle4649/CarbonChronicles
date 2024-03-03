@@ -53,7 +53,7 @@ def detailed_information():
 @views.route('/ai', methods=['GET', 'POST'])
 def ai_render():
     if request.method == 'POST':
-        years_to_predict = int(request.form.get('numericValue', 0))
+        years_to_predict = int(round(float(request.form.get('numericValue', 0))))
         if years_to_predict < 2025:
             flash('Please enter a year greater than 2025!', category="error")
             return redirect(url_for('views.ai_render'))
