@@ -53,7 +53,7 @@ def detailed_information():
 @views.route('/ai', methods=['GET', 'POST'])
 def ai_render():
     if request.method == 'POST':
-        years_to_predict = int(request.form.get('numericValue', 0))
+        years_to_predict = int(round(float(request.form.get('numericValue', 0))))
         if years_to_predict < 2025:
             flash('Please enter a year greater than 2025!', category="error")
             return redirect(url_for('views.ai_render'))
@@ -67,4 +67,8 @@ def ai_render():
         ml = ai('co2_trend.csv')
         img1 = ml.train()
         img2 = ml.predict(2050)
+<<<<<<< HEAD
         return render_template('ai.html', img1=img1, img2=img2)
+=======
+        return render_template('ai.html', img1=img1, img2=img2)
+>>>>>>> 28eb52037ea7654277681be6726dc21d21e3dbe8

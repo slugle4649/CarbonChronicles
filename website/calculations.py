@@ -66,7 +66,7 @@ class ai():
         fig, ax = plt.subplots(figsize=(5, 4), dpi=200)  # Adjust the figure size as needed
         ax.scatter(X_test, y_test, color='blue', label='Actual CO2 Emissions Per Year')  # Label for actual data points
         ax.plot(X_test, y_pred_test, color='red', label='Predicted CO2 Emissions Over Time')  # Label for predicted trend line
-        ax.set_title('CO2 Trends Prediction')
+        ax.set_title('Historic CO2 Trends Prediction')
         ax.set_xlabel('Year')
         ax.set_ylabel('CO2 Emissions')
 
