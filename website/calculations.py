@@ -20,18 +20,18 @@ class stats():
     # Calculating statistics
     def calc(self, country):
         calcs = {}
-
+        CO2 = self.CO2[country].replace(',', '')
         # Carbon emissions equivalent to 
-        calcs['calgasoline_gallons'] = self.CO2[country] * 113.0
-        calcs['passenger_miles'] = self.CO2[country] * 2564.0
-        calcs['smartphones_charged'] = self.CO2[country] * 121643.0
+        calcs['calgasoline_gallons'] = int(CO2) * 113.0
+        calcs['passenger_miles'] = int(CO2) * 2564.0
+        calcs['smartphones_charged'] = int(CO2) * 121643.0
 
         # Amount needed to sequest carbon emissions
-        calcs['USforest_acres'] = self.CO2[country] * 1.2
+        calcs['USforest_acres'] = int(CO2) * 1.2
 
         # Counteracting emissions 
-        calcs['trashbags_recycled'] = self.CO2[country] * 43.3
-        calcs['windturbines_running'] = self.CO2[country] * 0.0003
+        calcs['trashbags_recycled'] = int(CO2) * 43.3
+        calcs['windturbines_running'] = int(CO2) * 0.0003
 
         return calcs
 

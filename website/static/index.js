@@ -10,6 +10,7 @@ function click(event){
     
     console.log('help')
     once = false
+    
 
     fetch('http://127.0.0.1:5000/click_information', {
         method: 'POST',
@@ -17,11 +18,10 @@ function click(event){
             'country' : name.textContent
         }),
         headers: {
-          'Content-type': 'application/json; charset=UTF-8',
+        'Content-type': 'application/json; charset=UTF-8',
         }
         }).then(response => response.json()).then(
-            response => console.log(JSON.stringify(response))
-        )
+            response => console.log(JSON.stringify(response)))
 }
 
 function hover(event){
@@ -59,7 +59,12 @@ function hover(event){
     
 function change_hover(data, countryname){
     let info = document.getElementById('hoverbar')
-    info.textContent = countryname + 's CO2 emissions in metric tons is ' + data.CO2 + ', which is ' + data.Ranking + ' worldwide'
+    if (data.CO2 == 'No data'){
+        info.textContent = 'Sorry, we dont have data for this country'
+    }
+    else{
+        info.textContent = countryname + 's CO2 emissions in metric tons is ' + data.CO2 + ', which is ' + data.Ranking + ' worldwide'
+    }
 }
 
 function unhover(event){

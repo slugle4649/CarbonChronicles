@@ -24,23 +24,24 @@ def map():
 # Rendering data statistics output templates
 @views.route('/click_information', methods = ['POST'])
 def click_information():
-    print(request.json)
-    return request.json
-    '''
-    country_name = request
-    quick_stats = country_data.calc(country_name)
-    return render_template('information.html', quick_stats = quick_stats)
-    '''
+    country_name = request.json['country']
+    if country_name not in country_data.CO2:
+        return 'No data found'
+    rtn = country_data.calc(country_name)
+    return json.dumps(rtn)
 
 # Defining hover action on map
 @views.route('/hover_information', methods = ['POST'])
 def hover_information():
     country_name = request.json['country']
-    rtn = {
-        'CO2' : country_data.CO2[country_name],
-        'Ranking' : str(country_data.rank[country_name])
-    }
-    print(rtn)
+    if country_name not in country_data.CO2:
+        rtn = {
+            'CO2': 'No data' 
+        }
+    else:rtn = {
+            'CO2' : country_data.CO2[country_name],
+            'Ranking' : str(country_data.rank[country_name])
+        }
     return json.dumps(rtn)
 
 # Rendering AI html page
