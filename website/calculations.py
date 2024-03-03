@@ -85,16 +85,16 @@ class ai():
         # Returns image as png represented by base64 value
         return img_data
 
-    def predict(self):
+
+    def predict(self, year):
         # Time range for future predictions
-        future_years = np.array([[2025], [2030], [2035], [2040], [2045], [2050]])
-        
+        future_years = np.array(2025, year)
+        future_years = future_years.reshape(-1,1)
         # Fits a linear regression model
-        model = LinearRegression()
-        model.fit(self.X, self.y)
+        self.model.fit(self.X, self.y)
 
         # Making predictions for future years
-        future_predictions = model.predict(future_years)
+        future_predictions = self.model.predict(future_years)
 
         # Plots the future predictions
         fig, ax = plt.subplots(figsize=(5, 4), dpi=200)

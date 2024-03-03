@@ -1,61 +1,288 @@
 {% extends "layout.html" %} {% block title %}Home{% endblock %} 
 {% block main %}
-    <div id="container" data-mouse-down-at="0" data-prev-percentage="0">
-      <div class="mission"><h1>Carbon Chronicles</h1></div>
-      <div class="mission"><h2>Our Mission</h2></div>
-      <div class="mission">
-        <p>Our mission is to empower individuals and 
-        communities to understand and address the impact of 
-        carbon emissions on our planet.
-        </p></div>
-        <div class="mission"><p>By raising awareness, 
-        inspiring action, and fostering collaboration,
-         we aim to create a healthier, more resilient 
-         world for current and future generations.</p>
-        </div>
-  
-      <div class="mission"><h2>Carbon Facts</h2></div>
-      <div class="mission"><p>
-        Since 1970, CO2 emissions have increased by about 90%
-      </div></p>
-      <div class="mission"><p>
-        The world is using the equivalent of 1.6 Earths of resources to maintain our 
-        current way of life, and ecosystems cannot keep up with our demands.</p>
+<!DOCTYPE html>
+<head>
+  <title>Home</title>
+<style>
+/*
+* Below are Cascading Style Sheet (CSS) definitions in use in this file,
+* which make the website very modern and aesthetically pleasing.
+*
+* The styles are applied in the order in which they are defined (and re-defined) here in the preamble.
+*/
+
+@font-face{
+    font-family: Raleway;
+    src: url(raleway.otf)
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Raleway;
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    background-color: #111d13;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0rem;
+}
+
+main {
+    min-width: max-content;
+}
+
+#container > .image{
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: center;
+}
+
+#container{
+    display:flex;
+    gap:4vmin;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(0%, -50%);
+    color: #3A5A40;
+    object-position: 100% center;
+}
+
+#info {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    backdrop-filter: blur(1px);
+}
+
+.info-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    background-color: black;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border: 1px solid white;
+    border-radius: 1em;
+    width: 80%;
+    max-width: 600px; 
+    max-height: 80vh; 
+    overflow-y: auto; /* Add scrollbars if content exceeds max height */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.image:hover{
+    transform: scale(1.1);
+}
+
+#directions{
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+}
+
+.text{
+    font-size: 2em;
+    letter-spacing: 10px;
+    border-right: 5px solid;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100vw;
+    animation:
+        typing 2s steps(40),
+        cursor .4s step-end infinite alternate;
+}
+
+@keyframes cursor{
+    50% {border-color: transparent}
+}
+
+@keyframes typing {
+    from{width:0}
+}
+</style>
+
+</head>
+
+
+<body>
+<!-- Move images locally into templates or whatever and edit them accordingly. -->
+  <div id="container" data-mouse-down-at="0" data-prev-percentage="0">
+      <img class="image" src="https://images.unsplash.com/photo-1556691362-66587bf649bf?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false"/>
+      <img class="image" src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false"/>
+      <img class="image" src="https://plus.unsplash.com/premium_photo-1679138595811-8344b6829def?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false"/>
+      <img class="image" src="https://plus.unsplash.com/premium_photo-1682144407366-83198874f4fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fENhcmJvbiUyMEVtaXNzaW9uc3xlbnwwfHwwfHx8MA%3D%3D" draggable="false"/>
+      <img class="image" src="https://images.unsplash.com/photo-1592354218822-e43de51a8b33?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8T2NlYW4lMjBwb2xsdXRpb258ZW58MHx8MHx8fDA%3D" draggable="false"/>
+      <img class="image" src="https://images.unsplash.com/photo-1644674649847-0690247ae9ee?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false"/>
+      <img class="image" src="https://images.unsplash.com/photo-1522613753225-de0a19bbdd75?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false"/>
+      <img class="image" src="https://images.unsplash.com/photo-1585124841948-a29d16dcf4c7?q=80&w=1788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false"/>
+      <img class="image" src="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1652341178/EducationHub/photos/mauna-loa-observatory.jpg" draggable="false"/>
+
+    <div id="info" class="info">
+      <div class="info-content">
+        <span class="close">&times;</span>
+        <p id="info-text"></p>
       </div>
-      <div class="mission"><p>
-        Adapting to climate consequences protects people, homes, businesses, 
-        livelihoods, infrastructure and natural ecosystems.
-      </p></div>
-  
     </div>
+  </div>
+  <div id="directions">
+    <p class="text">Click on the images to learn more. Click & drag to explore.</p>
+  </div>
+</body>
+    <!-- <script src="index.js"></script> -->
+<script>
+  const track = document.getElementById("container");
+const info = document.getElementById("info");
+const infoContent = document.getElementById("info-text");
+const images = document.querySelectorAll(".image");
 
-    <script>
-        const track = document.getElementById("container");
+const imageTexts = [
+    "Our mission is to empower individuals and \
+    communities to understand and address the impact of \
+    carbon emissions on our planet. \n \
+    This webpage hopes to raise awareness about \
+    carbon emissions in a fun and interactive way \
+    through clever use of visuals and data manipulation. \n \
+    Read through the rest of the information by clicking on images \
+    in the home page, or by using the navigation bar at the top to \
+    explore more data and see future predictions by our \
+    machine learning model. \
+    By raising awareness, inspiring action, and fostering collaboration,\
+    we aim to create a healthier, more resilient \
+    world for current and future generations.",
 
-        window.onmousedown = e =>{
-            track.dataset.mouseDownAt = e.clientX;
-        }
+    "Since 1970, CO2 emissions have increased by about 90%. \
+    The world is using the equivalent of 1.6 Earths of resources to maintain our current way of life, and ecosystems cannot keep up with our demands.",
+    
+    "Adapting to climate consequences protects people, homes, businesses, \
+    livelihoods, infrastructure and natural ecosystems. The adoption of renewable energy sources such as solar, wind, and hydroelectric power has been growing rapidly in recent years. The costs of renewable energy technologies have plummeted, making them increasingly competitive with fossil fuels. In many regions, renewable energy is now the cheapest option for new electricity generation, leading to significant investments in clean energy infrastructure.",
+    
+    "Global Carbon Emissions: " + 
+    "Despite efforts to curb carbon emissions, global carbon dioxide (CO2) emissions from fossil fuel combustion and industrial processes reached a record high of 36.8 billion metric tons in 2019, according to the International Energy Agency (IEA). These emissions contribute significantly to global warming and climate change.",
 
-        window.onmouseup = e => {
-            track.dataset.mouseDownAt = "0";
-            track.dataset.prevPercentage = track.dataset.percentage;
-        }
+    "Ocean Acidification: Increased CO2 emissions are also causing ocean acidification, as the oceans absorb a significant portion of the carbon dioxide released into the atmosphere. This acidification threatens marine life, particularly coral reefs and shellfish, which rely on calcium carbonate to build their shells and skeletons.",
+    
+    "Health Impacts: Carbon emissions are not only harmful to the environment but also to human health. Air pollution caused by fossil fuel combustion is linked to respiratory diseases such as asthma and bronchitis, as well as cardiovascular problems. The World Health Organization (WHO) estimates that air pollution causes around 7 million premature deaths worldwide every year.",
 
-        window.onmousemove = e => {
-            if (track.dataset.mouseDownAt === "0") {return};
-            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-                maxDelta = window.innerWidth / 2;
-            
-            const percentage = (mouseDelta / maxDelta) * -100,
-                nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
-            Math.min(nextPercentage, 0);
-            Math.max(nextPercentage, -100);
-            track.dataset.percentage = nextPercentage;
-            
-            track.style.transform = `translate(${percentage}%, -50%)`;
+    "Disproportionate Impact on Developing Countries: Developing countries, which often have fewer resources to adapt to and mitigate the impacts of climate change, are disproportionately affected by carbon emissions. These countries are more vulnerable to extreme weather events, food insecurity, and water scarcity, leading to increased poverty and instability.",
+
+    "China, US, and India make up the largest percentage of carbon emissions. Visit the 'Map' section to learn more statistics for each country.",
+
+    "The Keeling Curve is a graph of the accumulation of carbon dioxide, based on data taken from Mauna Loa Observatory from 1958 to present. We used daily readings from the NOAA since 2014 to make a machine learning model to more accurarely predict the PPM of CO2 in the future. Learn more in our 'Predictions' tab."
+];
+
+images.forEach((image, index) => {
+    image.addEventListener("click", () => {
+        infoContent.textContent = imageTexts[index];
+        info.style.display = "block";
+    });
+});
+
+info.addEventListener("click", (event) => {
+    if (event.target.classList.contains("info") || event.target.classList.contains("close")) {
+        info.style.display = "none";
+    }
+});
+
+function init(){
+    window.addEventListener('mousedown', e => {
+        track.dataset.mouseDownAt = e.clientX;
+    });
+
+    window.addEventListener('mouseup', e => {
+        track.dataset.mouseDownAt = "0";
+        track.dataset.prevPercentage = track.dataset.percentage;
+    });
+
+    window.addEventListener('mousemove', e => {
+        if (track.dataset.mouseDownAt === "0") return;
+
+        const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+            maxDelta = window.innerWidth / 2;
+
+        let percentage = (mouseDelta / maxDelta) * -100,
+            nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
+
+        nextPercentage = Math.min(nextPercentage, 0);
+        nextPercentage = Math.max(nextPercentage, -100);
+
+        track.dataset.percentage = nextPercentage;
+
+        track.style.transform = `translate(${nextPercentage}%, -50%)`;
+
+        for (const box of track.getElementsByClassName("image")) {
+            box.style.objectPosition = `${100 + nextPercentage}% 50%`;
         }
-        for (const box of track.getElementsByClassName("mission")){
-            box.style.objectPosition = `${nextPercentage + 100} 50%`;
+    });
+
+    info.addEventListener("click", (event) => {
+        if (event.target.classList.contains("info") || event.target.classList.contains("close")) {
+            info.style.display = "none";
         }
-    </script>
+    });
+
+    // Function to calculate and set modal position
+    function setModalPosition() {
+        const modalWidth = infoContent.offsetWidth;
+        const modalHeight = infoContent.offsetHeight;
+        
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        // Calculate the maximum allowable left and top positions for the modal
+        const maxLeft = screenWidth - modalWidth;
+        const maxTop = screenHeight - modalHeight;
+
+        // Calculate the left and top positions for the modal
+        let modalLeft = (screenWidth - modalWidth) / 2 + window.scrollX;
+        let modalTop = (screenHeight - modalHeight) / 2 + window.scrollY;
+
+        // Ensure modal stays within the bounds of the screen
+        modalLeft = Math.max(0, Math.min(modalLeft, maxLeft));
+        modalTop = Math.max(0, Math.min(modalTop, maxTop));
+        
+        infoContent.style.left = `${modalLeft}px`;
+        infoContent.style.top = `${modalTop}px`;
+    }
+
+
+    // Call setModalPosition when the window is resized or scrolled
+    window.addEventListener('resize', setModalPosition);
+    window.addEventListener('scroll', setModalPosition);
+}
+window.onload = init();
+
+</script>
 {% endblock %}
