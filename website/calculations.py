@@ -88,8 +88,12 @@ class ai():
 
     def predict(self, year):
         # Time range for future predictions
-        future_years = np.array(2025, year)
-        future_years = future_years.reshape(-1,1)
+        if year != None:
+            future_years = np.arange(2025, year)
+            future_years = future_years.reshape(-1,1)
+        else:
+            future_years = np.array([[2025], [2030], [2035], [2040], [2045], [2050]])
+            
         # Fits a linear regression model
         self.model.fit(self.X, self.y)
 
