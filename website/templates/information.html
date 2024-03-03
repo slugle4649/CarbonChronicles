@@ -7,33 +7,47 @@
         <h2>Carbon Emission Calculations</h2>
         
         <div class="calc-item">
-            <span class="calc-label">Equivalent Gallons of Gasoline</span>
-            <span>{{ quick_stats['calgasoline_gallons'] }}</span>
+            <span class="calc-label" id="gasoline">Equivalent Gallons of Gasoline</span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label">Passenger Miles</span>
-            <span>{{ quick_stats['passenger_miles'] }}</span>
+            <span class="calc-label" id="passenger">Passenger Miles</span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label">Smartphones Charged</span>
-            <span>{{ quick_stats['smartphones_charged'] }}</span>
+            <span class="calc-label" id="smartphones">Smartphones Charged</span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label">Acres of US Forest Needed to Sequester</span>
-            <span>{{ quick_stats['USforest_acres'] }}</span>
+            <span class="calc-label" id="acres">Acres of US Forest Needed to Sequester is </span>
+
         </div>
         
         <div class="calc-item">
-            <span class="calc-label">Trash Bags Recycled</span>
-            <span>{{ quick_stats['trashbags_recycled'] }}</span>
+            <span class="calc-label" id="trash_bags">Trash Bags Recycled</span>
         </div>
         
         <div class="calc-item">
-            <span class="calc-label">Wind Turbines Running</span>
-            <span>{{ quick_stats['windturbines_running'] }}</span>
+            <span class="calc-label" id="wind">Wind Turbines Running</span>
         </div>
+
+        <script type="text/javascript">
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const forest_acres = urlParams.get('USforest_acres')
+            const calgasoline_gallons = urlParams.get('calgasoline_gallons')
+            const passenger_miles = urlParams.get('passenger_miles')
+            const smartphones = urlParams.get('smartphones_charged')
+            const transhbags = urlParams.get('trashbags_recycled')
+            const wind_turbines = urlParams.get('windturbines_running')
+
+            document.getElementById('acres').textContent += forest_acres
+            document.getElementById('gasoline').textContent += calgasoline_gallons
+            document.getElementById('passenger').textContent += passenger_miles
+            document.getElementById('smartphones').textContent += smartphones
+            document.getElementById('trash_bags').textContent += transhbags
+            document.getElementById('wind').textContent += wind_turbines
+
+        </script>
     </body>
 </html>

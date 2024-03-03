@@ -44,6 +44,10 @@ def hover_information():
         }
     return json.dumps(rtn)
 
+@views.route('/detailed_information')
+def detailed_information():
+    return render_template('information.html')
+
 # Rendering AI html page
 @views.route('/ai')
 def ai_render():

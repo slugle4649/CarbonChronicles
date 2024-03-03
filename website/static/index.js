@@ -21,7 +21,7 @@ function click(event){
         'Content-type': 'application/json; charset=UTF-8',
         }
         }).then(response => response.json()).then(
-            response => console.log(JSON.stringify(response)))
+            response => redirect(response))
 }
 
 function hover(event){
@@ -72,6 +72,14 @@ function unhover(event){
     info.style.visibility = 'hidden'
     once = true
     single = true
+}
+
+function redirect(data){
+    let redirecturl = ''
+    for (let key in data){
+        redirecturl += key + '=' + data[key] + '&'
+    }
+    window.location.href = "http://127.0.0.1:5000/detailed_information?" + redirecturl;
 }
 
 function init(){
