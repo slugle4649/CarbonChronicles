@@ -1,0 +1,61 @@
+{% extends "layout.html" %} {% block title %}Home{% endblock %} 
+{% block main %}
+    <div id="container" data-mouse-down-at="0" data-prev-percentage="0">
+      <div class="mission"><h1>Carbon Chronicles</h1></div>
+      <div class="mission"><h2>Our Mission</h2></div>
+      <div class="mission">
+        <p>Our mission is to empower individuals and 
+        communities to understand and address the impact of 
+        carbon emissions on our planet.
+        </p></div>
+        <div class="mission"><p>By raising awareness, 
+        inspiring action, and fostering collaboration,
+         we aim to create a healthier, more resilient 
+         world for current and future generations.</p>
+        </div>
+  
+      <div class="mission"><h2>Carbon Facts</h2></div>
+      <div class="mission"><p>
+        Since 1970, CO2 emissions have increased by about 90%
+      </div></p>
+      <div class="mission"><p>
+        The world is using the equivalent of 1.6 Earths of resources to maintain our 
+        current way of life, and ecosystems cannot keep up with our demands.</p>
+      </div>
+      <div class="mission"><p>
+        Adapting to climate consequences protects people, homes, businesses, 
+        livelihoods, infrastructure and natural ecosystems.
+      </p></div>
+  
+    </div>
+
+    <script>
+        const track = document.getElementById("container");
+
+        window.onmousedown = e =>{
+            track.dataset.mouseDownAt = e.clientX;
+        }
+
+        window.onmouseup = e => {
+            track.dataset.mouseDownAt = "0";
+            track.dataset.prevPercentage = track.dataset.percentage;
+        }
+
+        window.onmousemove = e => {
+            if (track.dataset.mouseDownAt === "0") {return};
+            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+                maxDelta = window.innerWidth / 2;
+            
+            const percentage = (mouseDelta / maxDelta) * -100,
+                nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
+            Math.min(nextPercentage, 0);
+            Math.max(nextPercentage, -100);
+            track.dataset.percentage = nextPercentage;
+            
+            track.style.transform = `translate(${percentage}%, -50%)`;
+        }
+        for (const box of track.getElementsByClassName("mission")){
+            box.style.objectPosition = `${nextPercentage + 100} 50%`;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Carbon Emission Calculations</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='information.css') }}">
+    </head>
+    <body>
+        <h2>Carbon Emission Calculations</h2>
+        
+        <div class="calc-item">
+            <span class="calc-label">Equivalent Gallons of Gasoline</span>
+            <span>{{ quick_stats['calgasoline_gallons'] }}</span>
+        </div>
+        
+        <div class="calc-item">
+            <span class="calc-label">Passenger Miles</span>
+            <span>{{ quick_stats['passenger_miles'] }}</span>
+        </div>
+        
+        <div class="calc-item">
+            <span class="calc-label">Smartphones Charged</span>
+            <span>{{ quick_stats['smartphones_charged'] }}</span>
+        </div>
+        
+        <div class="calc-item">
+            <span class="calc-label">Acres of US Forest Needed to Sequester</span>
+            <span>{{ quick_stats['USforest_acres'] }}</span>
+        </div>
+        
+        <div class="calc-item">
+            <span class="calc-label">Trash Bags Recycled</span>
+            <span>{{ quick_stats['trashbags_recycled'] }}</span>
+        </div>
+        
+        <div class="calc-item">
+            <span class="calc-label">Wind Turbines Running</span>
+            <span>{{ quick_stats['windturbines_running'] }}</span>
+        </div>
+    </body>
+</html>

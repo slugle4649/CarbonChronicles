@@ -1,0 +1,11 @@
+{% extends "layout.html" %} {% block title %}AI{% endblock %} 
+{% block main %}
+    <div class="mainbody">
+        <!-- Displaying the training image -->
+        <img src="data:image/png;base64, {{ img1 }}" alt="Training Image">
+    </div>
+    <div class="mainbody">
+        <!-- Displaying the prediction image -->
+        <img src="data:image/png;base64, {{ img2 }}" alt="Prediction Image">
+    </div>
+{% endblock %}
