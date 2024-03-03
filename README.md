@@ -1,4 +1,4 @@
-#Carbon Chronicles
+# Carbon Chronicles
 
 ## Inspiration
 When we were looking at census data for carbon dioxide, we realized that we had trouble understanding exactly how much 1 ton of CO2 was.
