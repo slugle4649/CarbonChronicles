@@ -168,12 +168,6 @@ main {
 }
 
 
-nav{
-    display: block;
-    width: 100%;
-    font-size: 13pt;
-}
-
 #home{
     display: flex;
     justify-content: space-between;
