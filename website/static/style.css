@@ -64,7 +64,7 @@ main {
 */
 .landxx
 {
-    fill: #B5E48C;
+    fill: #588a41;
     stroke: black;
     stroke-width: 0.5;
     fill-rule: evenodd;
@@ -88,7 +88,7 @@ main {
 .antxx
 {
     opacity: 1;
-    fill: #c0c0c0; 
+    fill: #aaaaaa; 
     pointer-events: none;
 }
 
@@ -142,7 +142,7 @@ main {
 .oceanxx
 {
     opacity: 1;
-    fill: #168AAD;
+    fill: #2b5100;
     stroke: #000000;
     stroke-width: 0.5;
 }
