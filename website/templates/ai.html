@@ -1,4 +1,5 @@
-{% extends "layout.html" %} {% block title %}AI{% endblock %} 
+{% extends "layout.html" %}
+{% block title %}AI{% endblock %}
 {% block main %}
     <div class="mainbody">
         <!-- Displaying the training image -->
@@ -8,4 +9,35 @@
         <!-- Displaying the prediction image -->
         <img src="data:image/png;base64, {{ img2 }}" alt="Prediction Image">
     </div>
+    <div class="container mt-4">
+        <form action="/ai" method="post" id="aiForm">
+            <div class="form-group">
+                <label for="numericValue">Enter a numeric value:</label>
+                <input type="number" class="form-control" id="numericValue" name="numericValue" placeholder="Enter a number" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="result" id="result" style="display: none;">
+            <!-- Result will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('aiForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get the numeric value entered by the user
+            var numericValue = document.getElementById('numericValue').value;
+            
+            // Make a GET request to fetch the result
+            fetch('/ai?numericValue=' + numericValue)
+                .then(response => response.text())
+                .then(data => {
+                    // Display the result
+                    document.getElementById('result').innerHTML = '<p>' + data + '</p>';
+                    document.getElementById('result').style.display = 'block';
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
 {% endblock %}
