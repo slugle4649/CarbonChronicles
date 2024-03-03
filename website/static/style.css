@@ -206,10 +206,3 @@ main {
     background-color: black;
     object-position: 100% center;
 }
-
-#checkBox{
-    display: flex;
-    position: relative;
-    bottom: 0;
-    right: 0;
-}
