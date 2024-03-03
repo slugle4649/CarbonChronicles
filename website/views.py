@@ -1,5 +1,5 @@
 # Used to render front-end or the html templates for the website
-from flask import Blueprint, render_template, request, json
+from flask import Blueprint, render_template, request, json, redirect, url_for
 from .calculations import stats
 from .calculations import ai
 import os
@@ -45,10 +45,22 @@ def hover_information():
     return json.dumps(rtn)
 
 # Rendering AI html page
+# Rendering AI html page
 @views.route('/ai')
 def ai_render():
-    ml = ai('co2_trend.csv')
-    img1 = ml.train()
-    img2 = ml.predict()
+    if request.method == 'POST':
+        years_to_predict = int(request.form.get('numericValue', 0))
+        if years_to_predict < 2025:
+            flash('Please enter a year greater than 2025!', category="error")
+            return redirect(url_for('views.ai_render'))
 
-    return render_template('ai.html', img1 = img1, img2 = img2)
+        ml = ai('co2_trend.csv')
+        img1 = ml.train()
+        img2 = ml.predict(years_to_predict)
+        return render_template('ai_result.html', img1=img1, img2=img2)
+
+    elif request.method == 'GET':
+        ml = ai('co2_trend.csv')
+        img1 = ml.train()
+        img2 = ml.predict()
+        return render_template('ai.html', img1=img1, img2=img2)
