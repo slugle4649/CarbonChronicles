@@ -11,12 +11,12 @@ views = Blueprint('views', __name__, template_folder='templates')
 # Calculations and statistics for each country
 country_data = stats('data.csv')
 
-# Rendering home page
+# Rendering the home page
 @views.route('/')
 def home():
     return render_template("home.html")
 
-# Rendering interactive map
+# Rendering the interactive map
 @views.route('/map')
 def map():
     return render_template('map.html')
@@ -49,7 +49,6 @@ def detailed_information():
     return render_template('information.html')
 
 # Rendering AI html page
-# Rendering AI html page
 @views.route('/ai', methods=['GET', 'POST'])
 def ai_render():
     if request.method == 'POST':
@@ -67,8 +66,4 @@ def ai_render():
         ml = ai('co2_trend.csv')
         img1 = ml.train()
         img2 = ml.predict(2050)
-<<<<<<< HEAD
         return render_template('ai.html', img1=img1, img2=img2)
-=======
-        return render_template('ai.html', img1=img1, img2=img2)
->>>>>>> 28eb52037ea7654277681be6726dc21d21e3dbe8
