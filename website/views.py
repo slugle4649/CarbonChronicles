@@ -66,5 +66,5 @@ def ai_render():
     elif request.method == 'GET':
         ml = ai('co2_trend.csv')
         img1 = ml.train()
-        img2 = ml.predict()
+        img2 = ml.predict(2040)
         return render_template('ai.html', img1=img1, img2=img2)
