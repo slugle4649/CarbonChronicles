@@ -1,74 +1,76 @@
-<html>
-    <head>
-        <title>Carbon Emission Calculations</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='information.css') }}">
-        <style type="text/css">
-            body{
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-                justify-content: space-between;
-                height: 90%;
-                overflow: hidden;
-                background-color: #111D13;
-                color: white;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Emission Calculations</title>
+    <!-- Bootstrap CSS CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PtS5ayop4CwjlRv6yZEzS5SWKkS9b3Fi3ZR4J+Xgcm3Guco3pDeXiCj0S4bjJfWo" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #111D13;
+            color: white;
+            font-size: 2rem;
+        }
+        .table {
+            font-size: inherit;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
+    <h2 class="mt-4 mb-5">Carbon Emission Calculations</h2>
 
-            *{
-                font-size: x-large;
-            }
+    <div class="table-responsive">
+        <table class="table table-dark table-striped table-lg text-center">
+            <tbody>
+                <tr>
+                    <td>Equivalent Gallons of Gasoline:</td>
+                    <td id="gasoline"></td>
+                </tr>
+                <tr>
+                    <td>Passenger Miles in a car:</td>
+                    <td id="passenger"></td>
+                </tr>
+                <tr>
+                    <td>Smartphones Charged:</td>
+                    <td id="smartphones"></td>
+                </tr>
+                <tr>
+                    <td>Acres of US Forest Needed to Sequester:</td>
+                    <td id="acres"></td>
+                </tr>
+                <tr>
+                    <td>Trash Bags Recycled:</td>
+                    <td id="trash_bags"></td>
+                </tr>
+                <tr>
+                    <td>Wind Turbines Running:</td>
+                    <td id="wind"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-            h2{
-                font-size: xx-large;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>Carbon Emission Calculations</h2>
-        
-        <div class="calc-item">
-            <span class="calc-label" id="gasoline">Equivalent Gallons of Gasoline: </span>
-        </div>
-        
-        <div class="calc-item">
-            <span class="calc-label" id="passenger">Passenger Miles in a car: </span>
-        </div>
-        
-        <div class="calc-item">
-            <span class="calc-label" id="smartphones">Smartphones Charged: </span>
-        </div>
-        
-        <div class="calc-item">
-            <span class="calc-label" id="acres">Acres of US Forest Needed to Sequester: </span>
+    <!-- Bootstrap JS and Popper.js CDN links (for Bootstrap dropdowns and other components) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-Ljpco4/GgI0fllWBx9HaBEzZvXEKn7IiQuPTw5NupFF6mLhN+s2vc+rOQ6WGI1NZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-ITPyVO2NZoVd8ymI8g/wwrYiz4sduK8uudwos1ELWZLiY6b5wu0Wqtmq8FZh2h1D" crossorigin="anonymous"></script>
 
-        </div>
-        
-        <div class="calc-item">
-            <span class="calc-label" id="trash_bags">Trash Bags Recycled: </span>
-        </div>
-        
-        <div class="calc-item">
-            <span class="calc-label" id="wind">Wind Turbines Running: </span>
-        </div>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const forest_acres = urlParams.get('USforest_acres');
+        const calgasoline_gallons = urlParams.get('calgasoline_gallons');
+        const passenger_miles = urlParams.get('passenger_miles');
+        const smartphones = urlParams.get('smartphones_charged');
+        const transhbags = urlParams.get('trashbags_recycled');
+        const wind_turbines = urlParams.get('windturbines_running');
 
-        <script type="text/javascript">
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const forest_acres = urlParams.get('USforest_acres')
-            const calgasoline_gallons = urlParams.get('calgasoline_gallons')
-            const passenger_miles = urlParams.get('passenger_miles')
-            const smartphones = urlParams.get('smartphones_charged')
-            const transhbags = urlParams.get('trashbags_recycled')
-            const wind_turbines = urlParams.get('windturbines_running')
-
-            document.getElementById('acres').textContent += forest_acres
-            document.getElementById('gasoline').textContent += calgasoline_gallons
-            document.getElementById('passenger').textContent += passenger_miles
-            document.getElementById('smartphones').textContent += smartphones
-            document.getElementById('trash_bags').textContent += transhbags
-            document.getElementById('wind').textContent += wind_turbines
-
-        </script>
-    </body>
+        document.getElementById('acres').textContent = forest_acres;
+        document.getElementById('gasoline').textContent = calgasoline_gallons;
+        document.getElementById('passenger').textContent = passenger_miles;
+        document.getElementById('smartphones').textContent = smartphones;
+        document.getElementById('trash_bags').textContent = transhbags;
+        document.getElementById('wind').textContent = wind_turbines;
+    </script>
+</body>
 </html>
