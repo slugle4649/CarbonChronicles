@@ -184,7 +184,7 @@ nav{
 
 #hoverbar{
     position: fixed;
-    top: 15%;
+    top: 20%;
     left: 15%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
