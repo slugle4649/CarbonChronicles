@@ -21,11 +21,11 @@ body {
     display: flex;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-    height: 3.43em; /* Adjust navbar height */
+    height: 60px; /* Adjust navbar height */
 }
 
 .container {
-    max-width: 100vw; /* Adjust as needed */
+    max-width: 1000em; /* Adjust as needed */
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -39,7 +39,7 @@ body {
 }
 
 .title p {
-    font-size: 22pt; /* Adjust font size as needed */
+    font-size: 30px; /* Adjust font size as needed */
 }
 
 nav ul {
@@ -49,19 +49,21 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-left: .625em; /* Adjust spacing between navigation links */
-    margin-top: .313em; /* Align navigation links vertically */
+    margin-left: 1em; /* Adjust spacing between navigation links */
+    margin-top: 1em; /* Align navigation links vertically */
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff; /* White text */
     transition: color 0.3s ease; /* Smooth transition on hover */
-    font-size: 16pt; /* Adjust font size for navigation links */
+    font-size: 18px; /* Adjust font size for navigation links */
 }
 
 nav ul li a:hover {
     color: #97999a; /* Change color on hover */
+    text-decoration: none;
+    font-size: 20px; 
 }
 
 /* Dropdown Styles */
