@@ -38,5 +38,8 @@ Bootstrap - How to use bootstrap to help run a server
 4. Click on the link, 127.0.0.1:5000 by default.
 5. Explore website.
 
+## Known issues
+The server takes a very long time to train the ML model and return the data. However, there is a very easy fix. After timeout, simply restart the server and reload the page. You should see your newly generated prediction graphs. It is inconvenient but given the time constraint, it is still functional. 
+
 ## What's next for SmathHacks 2024 
 Keep working so we can iron out all the bugs, and improve UI for all aspects of the site. Also potentially find some place to host the site.
