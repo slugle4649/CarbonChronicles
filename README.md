@@ -25,6 +25,7 @@ CSS Hierarchy - Was lost with how elements and their children interacted with ea
 ## Accomplishments that we're proud of
 Interactive Map - Map that live updates with the cursor, it also contains all countries.
 Parallax Scrolling - Parallax scrolling looks very aesthetically pleasing, and improves user experience.
+We thought we did really good for the time constraint and achieved full functionality with some minor QoL bugs to the end user.
 
 ## What we learned
 Parallax Scrolling - How to make a parallax scrolling website
@@ -39,7 +40,9 @@ Bootstrap - How to use bootstrap to help run a server
 5. Explore website.
 
 ## Known issues
-The server takes a very long time to train the ML model and return the data. However, there is a very easy fix. After timeout, simply restart the server and reload the page. You should see your newly generated prediction graphs. It is inconvenient but given the time constraint, it is still functional. 
+1. The server takes a very long time to train the ML model and return the data. However, there is a very easy fix. After timeout, simply restart the server and reload the page. You should see your newly generated prediction graphs. It is inconvenient but given the time constraint, it is still functional.
+2. Some countries open a new tab for data twice when clicked, like US. This doesn't affect functionality, its just a minor QoL hindrance.
+3. Some times the parallax effect doesn't render properly. This is most likely due to a JavaScript loading bug where the page loads before the JavaScript is fully implemented. 
 
-## What's next for SmathHacks 2024 
-Keep working so we can iron out all the bugs, and improve UI for all aspects of the site. Also potentially find some place to host the site.
+## What's next?
+Keep working so we can iron out all the bugs, and improve UI for all aspects of the site. We are working on fixing all known issues. Also potentially find some place to host the site. 
