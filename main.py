@@ -6,6 +6,8 @@ from website import create_webapp
 # Generating app
 app = create_webapp()
 
+app.config['TIMEOUT'] = 60
+
 # If main is run direclty, web server is started and will run.
 if __name__ == "__main__":
 

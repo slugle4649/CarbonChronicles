@@ -1,7 +1,7 @@
 # Used to render front-end or the html templates for the website
 from flask import Blueprint, render_template, request, json, redirect, url_for, flash
-from .calculations import stats
-from .calculations import ai
+from website.calculations import stats
+from website.calculations import ai
 import os
 import pandas
 import sys
@@ -10,6 +10,7 @@ views = Blueprint('views', __name__, template_folder='templates')
 
 # Calculations and statistics for each country
 country_data = stats('data.csv')
+
 
 # Rendering the home page
 @views.route('/')

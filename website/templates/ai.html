@@ -37,4 +37,22 @@
             <!-- Result displayed here -->
         </div>
     </div>
+    <script>
+        function generatePlot() {
+            var xScale = document.getElementById('numericValue').value;
+            fetch('/generate_plot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'x_scale=' + xScale
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'processing') {
+                    document.getElementById('plot_container').innerHTML = 'Plot is being generated...';
+                }
+            });
+        }
+    </script>
 {% endblock %}
