@@ -25,7 +25,7 @@ CSS Hierarchy - Was lost with how elements and their children interacted with ea
 ## Accomplishments that we're proud of
 Interactive Map - Map that live updates with the cursor, it also contains all countries.
 Parallax Scrolling - Parallax scrolling looks very aesthetically pleasing, and improves user experience.
-We thought we did really good for the time constraint and achieved full functionality with some minor QoL bugs to the end user.
+We thought we were very satisfied for the time constraint and achieved full functionality with some minor QoL bugs to the end user.
 
 ## What we learned
 Parallax Scrolling - How to make a parallax scrolling website
